@@ -87,7 +87,7 @@ Resources:
           Value:  !Ref paramUniqueTagName
   # Allow CodeBuild to connect to target Github repo (where static website locates) using Github Personal Access Token 
   myCodeBuildSourceCredential:
-    Type: AWS::CodeBuild::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SourceCredential
+    Type: AWS::CodeBuild::
     Properties:
       AuthType: PERSONAL_ACCESS_TOKEN
       ServerType: GITHUB
