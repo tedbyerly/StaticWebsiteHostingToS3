@@ -14,17 +14,17 @@ Parameters:
     ConstraintDescription: Personal GitHub access token is missing
     Description: Provide your personal GitHub access token for CodeBuild to access your GitHub repo 
   paramCodeBuildProjectName:
-    Description: Specify CodeBuild project name
+    Description: f5xc-aws-codebuild
     Type: String
     MinLength: 10
     MaxLength: 255
     AllowedPattern: ^[a-zA-Z][-a-zA-Z0-9]*$
     ConstraintDescription: Should contain uppercase, lowercase letters and digits from 0 to 9 only
-    Default: westworld-codebuild-for-website-hosting
+    Default: f5xcbot-codebuild-for-website-hosting
   paramGitHubLink:
     Type: String
     Description: Provide your GitHub link with source code for static website
-    Default: https://github.com/Tiamatt/StaticWebsiteHostingToS3.git
+    Default: https://github.com/tbyerly/StaticWebsiteHostingToS3.git
   paramBuildSpecRelativePathInGitHub:
     Description: Provide a relative path for BuildSpec yaml file in source code for static website 
     Type: String
@@ -32,9 +32,9 @@ Parameters:
   paramStaticWebsiteHostingBucketName:
     Description: Specify an existing S3 bucket that hosts static website
     Type: String
-    Default: westworld-website-hosting-bucket
+    Default: f5xcbotdefense-website-hosting-bucket
   paramUniqueTagName:
-    Description: Specify a unique name for tag
+    Description: f5xcbd
     Type: String
     Default: static-website-hosting-to-s3
     AllowedPattern: "[\\x20-\\x7E]*"
@@ -87,7 +87,7 @@ Resources:
           Value:  !Ref paramUniqueTagName
   # Allow CodeBuild to connect to target Github repo (where static website locates) using Github Personal Access Token 
   myCodeBuildSourceCredential:
-    Type: AWS::CodeBuild::SourceCredential
+    Type: AWS::CodeBuild::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SourceCredential
     Properties:
       AuthType: PERSONAL_ACCESS_TOKEN
       ServerType: GITHUB
