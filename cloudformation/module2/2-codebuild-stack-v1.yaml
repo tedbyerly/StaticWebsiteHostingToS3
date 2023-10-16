@@ -32,7 +32,7 @@ Parameters:
   paramStaticWebsiteHostingBucketName:
     Description: Specify an existing S3 bucket that hosts static website
     Type: String
-    Default: f5xcbotdefense-website-hosting-bucket
+    Default: f5xc-website-hosting-bucket
   paramUniqueTagName:
     Description: f5xcbd
     Type: String
