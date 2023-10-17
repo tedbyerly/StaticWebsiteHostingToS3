@@ -14,7 +14,7 @@ Parameters:
     ConstraintDescription: Personal GitHub access token is missing
     Description: Provide your personal GitHub access token for CodeBuild to access your GitHub repo 
   paramCodeBuildProjectName:
-    Description: f5xcbd-aws-codebuild
+    Description: Specify CodeBuild project name
     Type: String
     MinLength: 10
     MaxLength: 255
@@ -34,7 +34,7 @@ Parameters:
     Type: String
     Default: f5xcbd-website-hosting-bucket
   paramUniqueTagName:
-    Description: f5xcbd
+    Description: Specify a unique name for tag
     Type: String
     Default: static-website-hosting-to-s3
     AllowedPattern: "[\\x20-\\x7E]*"
@@ -67,11 +67,10 @@ Resources:
                   - logs:CreateLogGroup
                   - logs:CreateLogStream
                   - logs:PutLogEvents
-                  - logs:DescribeLogStreams
                 Effect: Allow
                 Resource:
-                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:f5xcbd-codebuild-for-website-hosting-CloudWatchLogs
-                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:f5xcbd-codebuild-for-website-hosting-CloudWatchLogs
+                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs
+                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs:*
               # statement to access S3 bucket that hosts static website (CodeBuild will save Artofacts there)
               - Action:
                   - s3:PutObject
