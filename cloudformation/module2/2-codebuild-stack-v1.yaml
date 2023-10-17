@@ -20,11 +20,11 @@ Parameters:
     MaxLength: 255
     AllowedPattern: ^[a-zA-Z][-a-zA-Z0-9]*$
     ConstraintDescription: Should contain uppercase, lowercase letters and digits from 0 to 9 only
-    Default: f5xcbot-codebuild-for-website-hosting
+    Default: f5xcbd-codebuild-for-website-hosting
   paramGitHubLink:
     Type: String
     Description: Provide your GitHub link with source code for static website
-    Default: https://github.com/tbyerly/StaticWebsiteHostingToS3.git
+    Default: https://github.com/tedbyerly/StaticWebsiteHostingToS3.git
   paramBuildSpecRelativePathInGitHub:
     Description: Provide a relative path for BuildSpec yaml file in source code for static website 
     Type: String
