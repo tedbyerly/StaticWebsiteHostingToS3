@@ -12,7 +12,7 @@ Parameters:
     Type: String
     MinLength: 10
     ConstraintDescription: Personal GitHub access token is missing
-    Description: Insert token
+    Description: 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
   paramCodeBuildProjectName:
     Description: Specify CodeBuild project name
     Type: String
