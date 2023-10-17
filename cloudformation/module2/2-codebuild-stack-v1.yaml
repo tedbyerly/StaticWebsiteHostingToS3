@@ -70,8 +70,8 @@ Resources:
                   - logs:CreateLogDelivery
                 Effect: Allow
                 Resource:
-                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${paramCodeBuildProjectName}-CloudWatchLogs
-                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${paramCodeBuildProjectName}-CloudWatchLogs:*
+                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs
+                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs:*
               # statement to access S3 bucket that hosts static website (CodeBuild will save Artofacts there)
               - Action:
                   - s3:GetBucketPolicy
