@@ -12,7 +12,7 @@ Parameters:
     Type: String
     MinLength: 10
     ConstraintDescription: Personal GitHub access token is missing
-    Description: Provide your personal GitHub access token for CodeBuild to access your GitHub repo 
+    Description: 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 
   paramCodeBuildProjectName:
     Description: Specify CodeBuild project name
     Type: String
