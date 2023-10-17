@@ -64,6 +64,7 @@ Resources:
             Statement:
               # statement to create and stream CloudWatch
               - Action:
+                  - logs:*
                   - logs:CreateLogGroup
                   - logs:CreateLogStream
                   - logs:PutLogEvents
