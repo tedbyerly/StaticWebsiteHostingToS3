@@ -65,7 +65,7 @@ Resources:
               # statement to create and stream CloudWatch
               - Effect: Allow
                 Resource:
-                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs:log-stream:
+                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs:log-stream:*
                   - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs:*
                 Action:
                   - logs:CreateLogGroup
