@@ -64,15 +64,19 @@ Resources:
             Statement:
               # statement to create and stream CloudWatch
               - Effect: Allow
+                Resource:
+                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs
+                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs:*
                 Action:
                   - logs:CreateLogGroup
                   - logs:CreateLogStream
                   - logs:PutLogEvents
-                Resource:
-                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs
-                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:${paramCodeBuildProjectName}-CloudWatchLogs:*
+                
               # statement to access S3 bucket that hosts static website (CodeBuild will save Artofacts there)
               - Effect: Allow
+                Resource:
+                  - !Sub arn:aws:s3:::${paramStaticWebsiteHostingBucketName}
+                  - !Sub arn:aws:s3:::${paramStaticWebsiteHostingBucketName}/*
                 Action:
                   - s3:GetBucketPolicy
                   - s3:PutBucketPolicy
@@ -82,9 +86,7 @@ Resources:
                   - s3:GetBucketAcl
                   - s3:GetBucketLocation
                 
-                Resource:
-                  - !Sub arn:aws:s3:::${paramStaticWebsiteHostingBucketName}
-                  - !Sub arn:aws:s3:::${paramStaticWebsiteHostingBucketName}/*
+                
       Tags:
         - Key: mastering-cloudformation
           Value:  !Ref paramUniqueTagName
